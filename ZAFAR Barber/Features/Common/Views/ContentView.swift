@@ -54,30 +54,34 @@ struct ContentView: View {
 }
 
 struct UserTabs: View {
-    @EnvironmentObject var authViewModel: AuthViewModel
-    @EnvironmentObject var appointmentViewModel: AppointmentViewModel
+    // Yon menyuning holatini boshqaradi
+    @State private var isSideMenuShowing = false
     
     var body: some View {
-        NavigationView {
-            TabView {
-                BookingView(viewModel: appointmentViewModel)
-                    .tabItem {
-                        Label("Navbat Olish", systemImage: "calendar.badge.plus")
-                    }
-                
-                MyBookingsView(viewModel: appointmentViewModel)
-                    .tabItem {
-                        Label("Mening Navbatlarim", systemImage: "list.bullet")
+        ZStack {
+            // Asosiy sahifa - HomeView
+            // U environmentObject'larni avtomatik qabul qiladi
+            HomeView(isSideMenuShowing: $isSideMenuShowing)
+            
+            // Orqa fonni xiralashtirish
+            if isSideMenuShowing {
+                Color.black
+                    .opacity(0.3)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            isSideMenuShowing = false
+                        }
                     }
             }
-            .navigationTitle("Sartaroshxona")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Chiqish") {
-                        authViewModel.signOut()
-                    }
-                }
-            }
+            
+            // Yon menyu
+            SideMenuView()
+                .frame(width: UIScreen.main.bounds.width * 0.7) // Ekran kengligining 70%
+                .offset(x: isSideMenuShowing ? 0 : -UIScreen.main.bounds.width)
+                .transition(.move(edge: .leading))
+                .ignoresSafeArea()
+
         }
     }
 }

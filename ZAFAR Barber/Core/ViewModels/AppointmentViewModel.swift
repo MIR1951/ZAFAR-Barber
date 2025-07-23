@@ -94,8 +94,13 @@ class AppointmentViewModel: ObservableObject {
         while currentTime < endTime {
             var newSlot = TimeSlot(date: currentTime)
             
-            // Shu vaqtda navbat bor yoki yo'qligini tekshirish
-            let isBooked = appointments.contains { $0.appointmentTime == newSlot.date }
+            // Vaqtni band qilgan navbat borligini tekshirish
+            let isBooked = appointments.contains { appointment in
+                // Shartni o'zgartiramiz: faqat .pending va .approved statuslaridagini tekshiramiz
+                let isConsideredBooked = (appointment.status == .pending || appointment.status == .approved)
+                
+                return appointment.appointmentTime == newSlot.date && isConsideredBooked
+            }
             
             // O'tib ketgan vaqtlarni ham band qilish
             if isBooked || (calendar.isDateInToday(selectedDate) && currentTime < Date()) {
