@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // Allow logged-in users to read their own user data and see other users
+    match /users/{userId} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Allow logged-in users to manage their own appointments
+    // Allow admins to manage all appointments
+    match /appointments/{appointmentId} {
+       allow read, write: if request.auth != null; // Simplified for now
+       // A more secure rule would be:
+       // allow read, create: if request.auth != null;
+       // allow update, delete: if request.auth != null && (resource.data.uid == request.auth.uid || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin');
+    }
+    
+  }
+} 

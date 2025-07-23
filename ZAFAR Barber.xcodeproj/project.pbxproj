@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4960AAF82E30B001004CC3A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4960AAF72E30B001004CC3A3 /* FirebaseAuth */; };
+		4960AAFA2E30B001004CC3A3 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4960AAF92E30B001004CC3A3 /* FirebaseCore */; };
+		4960AAFC2E30B001004CC3A3 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4960AAFB2E30B001004CC3A3 /* FirebaseDatabase */; };
+		4960AAFE2E30B001004CC3A3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 4960AAFD2E30B001004CC3A3 /* FirebaseFirestore */; };
+		4960AB002E30B001004CC3A3 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 4960AAFF2E30B001004CC3A3 /* FirebaseFunctions */; };
+		4960AB022E30B001004CC3A3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 4960AB012E30B001004CC3A3 /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4960AABD2E30AC34004CC3A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +61,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4960AAFC2E30B001004CC3A3 /* FirebaseDatabase in Frameworks */,
+				4960AAFE2E30B001004CC3A3 /* FirebaseFirestore in Frameworks */,
+				4960AB002E30B001004CC3A3 /* FirebaseFunctions in Frameworks */,
+				4960AAFA2E30B001004CC3A3 /* FirebaseCore in Frameworks */,
+				4960AAF82E30B001004CC3A3 /* FirebaseAuth in Frameworks */,
+				4960AB022E30B001004CC3A3 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +127,12 @@
 			);
 			name = "ZAFAR Barber";
 			packageProductDependencies = (
+				4960AAF72E30B001004CC3A3 /* FirebaseAuth */,
+				4960AAF92E30B001004CC3A3 /* FirebaseCore */,
+				4960AAFB2E30B001004CC3A3 /* FirebaseDatabase */,
+				4960AAFD2E30B001004CC3A3 /* FirebaseFirestore */,
+				4960AAFF2E30B001004CC3A3 /* FirebaseFunctions */,
+				4960AB012E30B001004CC3A3 /* FirebaseStorage */,
 			);
 			productName = "ZAFAR Barber";
 			productReference = 4960AAAF2E30AC32004CC3A3 /* ZAFAR Barber.app */;
@@ -195,6 +216,9 @@
 			);
 			mainGroup = 4960AAA62E30AC32004CC3A3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4960AAB02E30AC32004CC3A3 /* Products */;
 			projectDirPath = "";
@@ -400,6 +424,7 @@
 				DEVELOPMENT_TEAM = XD59PG7AUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ZAFAR-Barber-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -428,6 +453,7 @@
 				DEVELOPMENT_TEAM = XD59PG7AUF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ZAFAR-Barber-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -558,6 +584,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4960AAF72E30B001004CC3A3 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		4960AAF92E30B001004CC3A3 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		4960AAFB2E30B001004CC3A3 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		4960AAFD2E30B001004CC3A3 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		4960AAFF2E30B001004CC3A3 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		4960AB012E30B001004CC3A3 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4960AAF62E30B001004CC3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4960AAA72E30AC32004CC3A3 /* Project object */;
 }
